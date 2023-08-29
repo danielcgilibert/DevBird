@@ -1,0 +1,12 @@
+{
+  "extends": "tsconfig/server.json",
+  "compilerOptions": {
+    "baseUrl": "src",
+    "outDir": "dist",
+    "paths": {
+      "@app/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "build", "**/*.test.ts", "**/*.spec.ts"]
+}
