@@ -7,7 +7,7 @@ export function Header(): JSX.Element {
     <div className=' bg-white w-full h-16 px-20 flex items-center justify-between'>
       <span className='flex justify-center items-center font-medium'>
         <img alt='icon' className='w-8 h-8' src='icon.svg' />
-        DevTweet
+        DevBird
       </span>
       <nav>
         <ul className=' space-x-20 flex justify-center items-center '>
