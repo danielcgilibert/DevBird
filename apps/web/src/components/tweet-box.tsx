@@ -1,6 +1,6 @@
 'use client'
 
-import { Avatar, Box } from 'ui'
+import { Avatar, Box, Button } from 'ui'
 
 export function TweetBox(): JSX.Element {
   return (
@@ -28,9 +28,7 @@ export function TweetBox(): JSX.Element {
                   🌎 Everyone can reply
                 </span>
               </div>
-              <button className='bg-blue-500 ml-auto w-20 h-8 rounded text-white'>
-                Tweet
-              </button>
+              <Button>Tweet</Button>
             </div>
           </div>
         </div>

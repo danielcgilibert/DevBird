@@ -1,8 +1,8 @@
-const getUser = (req: any, res: { send: (arg0: string) => void }) => {
+const getUser = (req: any, res: any) => {
   res.send('Hello user!')
 }
 
-const deleteUser = (req: any, res: { send: (arg0: string) => void }) => {
+const deleteUser = (req: any, res: any) => {
   res.send('de user!')
 }
 

@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@radix-ui/react-avatar": "^1.0.3",
+    "@radix-ui/react-dialog": "^1.0.4",
     "@radix-ui/react-dropdown-menu": "^2.0.5",
     "@turbo/gen": "^1.10.12",
     "@types/node": "^20.5.2",

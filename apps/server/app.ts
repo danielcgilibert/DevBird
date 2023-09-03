@@ -3,6 +3,7 @@ import cors from 'cors'
 
 //Routes
 import userRoutes from './src/routes/user.route'
+import authRoutes from './src/routes/auth.route'
 
 const app = express()
 const PORT = process.env.PORT || 4000
@@ -12,8 +13,10 @@ app.use(
     credentials: true
   })
 )
-app.use('/user', userRoutes)
 
+// Routes
+app.use('/user', userRoutes)
+app.use('/auth', authRoutes)
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
