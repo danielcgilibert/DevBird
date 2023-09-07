@@ -11,9 +11,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className='bg-[#F2F2F2] w-screen h-screen'>
         <Header />
-        <div className='container max-w-6xl mx-auto mt-8 antialiased pb-8'>
-          {children}
-        </div>
+        <>{children}</>
         <TailwindIndicator />
       </body>
     </html>

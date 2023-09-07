@@ -1,7 +1,7 @@
 import { Avatar, Box } from 'ui'
-import { Trending } from '../components/trending'
-import { TweetBox } from '../components/tweet-box'
-import { Tweet } from '../components/tweet'
+import { Trending } from '../../components/trending'
+import { TweetBox } from '../../components/tweet-box'
+import { Tweet } from '../../components/tweet'
 
 export default function Page(): JSX.Element {
   return (
