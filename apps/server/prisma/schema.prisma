@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -14,15 +14,25 @@ datasource db {
 model User {
   id    Int     @id @default(autoincrement())
   email String  @unique
-  name  String?
-  posts Post[]
+  firstName String?
+  lastName String?
+  createdAt DateTime @default(now())
+  username  String
+  tweets Tweet[]
 }
 
-model Post {
-  id        Int     @id @default(autoincrement())
-  title     String
-  content   String?
-  published Boolean @default(false)
-  author    User    @relation(fields: [authorId], references: [id])
-  authorId  Int
+model Tweet {
+  id        Int   @id @default(autoincrement()) 
+  body      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId   Int 
+  likedIds String[]
+  retweetedIds String[]
+  num_comments Int
+  num_likes Int
+  num_retweets Int
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // comments Comment[]
 }

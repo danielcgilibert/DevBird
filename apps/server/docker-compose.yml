@@ -1,20 +1,21 @@
 version: '3.8'
 services:
-  db:
-    image: mysql:8.0
+  devbird-db:
+    container_name: devbird-database
+    image: postgres:15.4
     cap_add:
       - SYS_NICE
     restart: always
     environment:
-      - MYSQL_DATABASE=openlink
-      - MYSQL_USER=openlink
-      - MYSQL_PASSWORD=openpass
-      - MYSQL_ROOT_PASSWORD=openpass
+      - POSTGRES_DATABASE=devBird
+      - POSTGRES_USER=devBird
+      - POSTGRES_PASSWORD=devpass
+      - POSTGRES_ROOT_PASSWORD=devpass
     ports:
-      - '3306:3306'
+      - '5432:5432'
     volumes:
-      - db:/var/lib/mysql
-      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - devbird-db:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
 volumes:
-  db:
+  devbird-db:
     driver: local

@@ -34,3 +34,4 @@ yarn-error.log*
 
 # vercel
 .vercel
+apps/server/prisma/migrations/migration_lock.toml

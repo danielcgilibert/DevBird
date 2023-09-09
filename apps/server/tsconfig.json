@@ -4,9 +4,15 @@
     "baseUrl": "src",
     "outDir": "dist",
     "paths": {
-      "@app/*": ["src/*"]
+      "@app/*": ["*"],
+      "@config/*": ["config/*"],
+      "@types/*": ["types/*"],
+      "@controllers/*": ["controllers/*"],
+      "@routes/*": ["routes/*"],
+      "@utils/*": ["utils/*"],
+      "@models/*": ["models/*"]
     }
   },
-  "include": ["src/**/*", "app.ts"],
+  "include": ["src/**/*", "src/app.ts", "prisma/seed.ts"],
   "exclude": ["node_modules", "dist", "build", "**/*.test.ts", "**/*.spec.ts"]
 }
