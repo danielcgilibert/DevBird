@@ -7,12 +7,12 @@
     "build": "tsc",
     "start": "tsc && node dist/app.js",
     "dev": "nodemon",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "studio": "pnpx prisma studio"
   },
   "prisma": {
     "schema": "prisma/schema.prisma",
     "generate": "pnpx prisma generate",
-    "studio": "pnpx prisma studio",
     "seed": "ts-node prisma/seed.ts"
   },
   "keywords": [],

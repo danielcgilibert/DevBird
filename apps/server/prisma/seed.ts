@@ -19,7 +19,17 @@ async function main() {
       email: 'bob@prisma.io',
       firstName: 'Bob',
       lastName: 'Doe',
-      username: 'bob42'
+      username: 'bob42',
+      tweets: {
+        create: [
+          {
+            body: 'Hello world',
+            num_comments: 5,
+            num_retweets: 10,
+            num_likes: 42
+          }
+        ]
+      }
     }
   })
 }

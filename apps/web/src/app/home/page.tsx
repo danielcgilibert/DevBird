@@ -1,16 +1,18 @@
 import { Avatar, Box } from 'ui'
-import { Trending } from '../../components/trending'
-import { TweetBox } from '../../components/tweet-box'
-import { Tweet } from '../../components/tweet'
+import { Trending } from '@components/trending'
+import { TweetBox } from '@components/tweet-box'
+import { Tweet } from '@components/tweet'
+import { getTweets } from '@services/getTweets'
 
-export default function Page(): JSX.Element {
+export default async function Page() {
+  const tweets = await getTweets()
   return (
     <main className='grid grid-cols-[auto,300px] gap-8'>
       <div className='flex flex-col gap-6'>
         <TweetBox />
-        <Tweet />
-        <Tweet />
-        <Tweet />
+        {tweets.map((tweet) => (
+          <Tweet key={tweet.id} {...tweet} />
+        ))}
       </div>
       <aside className='flex flex-col gap-6 sticky top-14 self-start'>
         <Trending />

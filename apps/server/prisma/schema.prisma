@@ -12,7 +12,7 @@ datasource db {
 
 
 model User {
-  id    Int     @id @default(autoincrement())
+  id    String     @id @default(uuid())
   email String  @unique
   firstName String?
   lastName String?
@@ -26,7 +26,7 @@ model Tweet {
   body      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  userId   Int 
+  userId   String 
   likedIds String[]
   retweetedIds String[]
   num_comments Int

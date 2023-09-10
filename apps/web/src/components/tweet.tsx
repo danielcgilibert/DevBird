@@ -1,8 +1,9 @@
 'use client'
 
 import { Avatar, Box, Date } from 'ui'
+import { type tweet } from '../types/tweet'
 
-export function Tweet(): JSX.Element {
+export function Tweet({ body, numLikes, numRetweets }: tweet): JSX.Element {
   return (
     <Box>
       <div className='flex flex-col gap-5'>
@@ -14,10 +15,7 @@ export function Tweet(): JSX.Element {
           </div>
         </header>
         <main className='flex flex-col gap-5'>
-          <p className=''>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptatum, voluptate, quibusdam, quia voluptas quod quos
-          </p>
+          <p className=''>{body}</p>
 
           <img
             className='rounded-md'
@@ -29,10 +27,10 @@ export function Tweet(): JSX.Element {
               449 Comments
             </span>
             <span className='text-gray-400 font-medium tracking-tighter'>
-              59k Retweets
+              {numRetweets} Retweets
             </span>
             <span className='text-gray-400 font-medium tracking-tighter'>
-              234 Saved
+              {numLikes} likes
             </span>
           </div>
 
