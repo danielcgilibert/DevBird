@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "start": "tsc && node dist/app.js",
+    "build": "tsc -p tsconfig.json",
+    "start": "TS_NODE_BASEURL=./dist/src node -r tsconfig-paths/register dist/src/app.js",
     "dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1",
     "studio": "pnpx prisma studio"
