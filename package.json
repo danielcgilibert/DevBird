@@ -7,7 +7,8 @@
     "start": "turbo run start",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "server:build": "turbo run build --scope server",
-    "server:start": "cd apps/server && npm run start"
+    "server:studio": "cd apps/server && pnpm run studio",
+    "server:start": "cd apps/server && pnpm run start"
   },
   "devDependencies": {
     "eslint": "^8.47.0",

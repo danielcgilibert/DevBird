@@ -1,5 +1,21 @@
 version: '3.8'
 services:
+  devbird-db:
+    container_name: devbird-database
+    image: postgres:15.4
+    cap_add:
+      - SYS_NICE
+    restart: always
+    environment:
+      - POSTGRES_DATABASE=devBird
+      - POSTGRES_USER=devBird
+      - POSTGRES_PASSWORD=devpass
+      - POSTGRES_ROOT_PASSWORD=devpass
+    ports:
+      - '5432:5432'
+    volumes:
+      - devbird-db:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
   api:
     container_name: server
     build:
@@ -8,3 +24,7 @@ services:
     restart: always
     ports:
       - 4000:4000
+
+volumes:
+  devbird-db:
+    driver: local
