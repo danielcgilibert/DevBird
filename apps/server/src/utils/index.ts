@@ -1,3 +1,11 @@
-import crypto from 'crypto'
+import bcrypt from 'bcrypt'
 
-export const random = () => crypto.randomBytes(128).toString('base64')
+export const encrypt = (password: string) => {
+  const hash = bcrypt.hashSync(password, 10)
+  return hash
+}
+
+export const compare = (password: string, hash: string) => {
+  const isValid = bcrypt.compareSync(password, hash)
+  return isValid
+}

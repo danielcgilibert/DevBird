@@ -1,4 +1,5 @@
 import express, { json } from 'express'
+import cookieParser from 'cookie-parser'
 
 // Load environment variables
 import 'dotenv/config'
@@ -16,6 +17,7 @@ const app = express()
 const PORT = process.env.PORT || 4000
 
 app.use(json())
+app.use(cookieParser())
 app.use(corsMiddleware())
 app.disable('x-powered-by')
 

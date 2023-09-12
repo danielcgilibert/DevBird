@@ -11,11 +11,13 @@ datasource db {
 }
 
 
+
 model User {
   id    String     @id @default(uuid())
   email String  @unique
   firstName String?
   lastName String?
+  password String
   createdAt DateTime @default(now())
   username  String
   tweets Tweet[]

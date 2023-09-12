@@ -15,5 +15,19 @@ export class UserModel {
     return user
   }
 
-  static async createUser(email: string, password: string, username: string) {}
+  static async createUser(userData: {
+    email: string
+    password: string
+    username: string
+  }) {
+    const { email, password, username } = userData
+    const user = await prisma.user.create({
+      data: {
+        email,
+        password,
+        username
+      }
+    })
+    return user
+  }
 }
