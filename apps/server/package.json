@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "tsc && npx prisma generate",
     "start": "TS_NODE_BASEURL=./dist/src node -r tsconfig-paths/register dist/src/app.js",
     "dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1",
