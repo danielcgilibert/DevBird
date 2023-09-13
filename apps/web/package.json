@@ -12,7 +12,8 @@
     "next": "^13.4.19",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "ui": "workspace:*"
+    "ui": "workspace:*",
+    "zustand": "^4.4.1"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.4.19",
@@ -21,8 +22,8 @@
     "@types/react-dom": "^18.0.7",
     "autoprefixer": "^10.4.15",
     "eslint-config-custom": "workspace:*",
-    "tailwind-config": "workspace:*",
     "postcss": "^8.4.29",
+    "tailwind-config": "workspace:*",
     "tailwindcss": "^3.3.3",
     "tsconfig": "workspace:*",
     "typescript": "^4.5.3"

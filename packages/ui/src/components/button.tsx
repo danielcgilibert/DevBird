@@ -20,11 +20,11 @@ export const ButtonStyles = cn(
 export function Button(props: ButtonProps): JSX.Element {
   return (
     <button
-      className={ButtonStyles}
       disabled={props.disabled || props.loadingstatus}
       onClick={props.onClick}
       type={props.type}
-      {...props}>
+      {...props}
+      className={cn(ButtonStyles, props.className)}>
       {props.children}
     </button>
   )
