@@ -8,7 +8,6 @@ import 'dotenv/config'
 import userRoutes from '@routes/user.route'
 import authRoutes from '@routes/auth.route'
 import tweetsRoutes from '@routes/tweets.route'
-
 // Middlewares
 import { corsMiddleware } from '@middlewares/cors'
 
@@ -16,9 +15,9 @@ import { corsMiddleware } from '@middlewares/cors'
 const app = express()
 const PORT = process.env.PORT || 4000
 
+app.use(corsMiddleware())
 app.use(json())
 app.use(cookieParser())
-app.use(corsMiddleware())
 app.disable('x-powered-by')
 
 // Routes
