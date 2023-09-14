@@ -4,6 +4,7 @@ import { DropdownMenu } from 'ui'
 import { LoginForm } from './login-form'
 import { authStore } from '../store/authStore'
 import Link from 'next/link'
+import { UserMenu } from './user-menu'
 
 export function Header(): JSX.Element {
   const { user } = authStore()
@@ -34,7 +35,7 @@ export function Header(): JSX.Element {
 
       <div className='flex justify-center items-center gap-3 justify-self-end'>
         {user ? (
-          <DropdownMenu />
+          <UserMenu />
         ) : (
           <>
             <LoginForm />

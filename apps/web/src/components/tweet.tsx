@@ -2,6 +2,8 @@
 
 import { Avatar, Box, Date } from 'ui'
 import { type tweet } from '../types/tweet'
+import { Bookmark, Heart, MessageSquare, Repeat2 } from 'lucide-react'
+import { CommentInput } from './comment-input'
 
 export function Tweet({ body, numLikes, numRetweets }: tweet): JSX.Element {
   return (
@@ -14,15 +16,10 @@ export function Tweet({ body, numLikes, numRetweets }: tweet): JSX.Element {
             <Date />
           </div>
         </header>
-        <main className='flex flex-col gap-5'>
-          <p className=''>{body}</p>
+        <main className='flex flex-col '>
+          <p className='mb-4'>{body}</p>
 
-          <img
-            className='rounded-md'
-            src='https://images.unsplash.com/photo-1682687219356-e820ca126c92?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80'
-          />
-
-          <div className='flex gap-4 justify-end text-sm'>
+          <div className='flex gap-4 justify-end text-sm mb-2'>
             <span className='text-gray-400 font-medium tracking-tighter'>
               449 Comments
             </span>
@@ -35,20 +32,25 @@ export function Tweet({ body, numLikes, numRetweets }: tweet): JSX.Element {
           </div>
 
           <hr />
-          <footer className='flex justify-around items-center'>
-            <span className='text-black text-sm font-medium -tracking-wider'>
-              📝 Comment
-            </span>
-            <span className='text-green-500 text-sm font-medium -tracking-wider'>
-              ↺ Retweeted
-            </span>
-            <span className='text-red-500 text-sm font-medium -tracking-wider'>
-              ♥️ Liked
-            </span>
-            <span className='text-blue-500 text-sm font-medium -tracking-wider'>
-              📤 Saved
-            </span>
+          <footer className='flex justify-around items-center py-4'>
+            <button className='hover:bg-[#F2F2F2] rounded-lg px-11 py-3 text-sm font-medium text-[#4F4F4F] -tracking-[-0,49px] flex justify-center gap-3'>
+              <MessageSquare size={20} /> Comment
+            </button>
+            <button className='hover:bg-[#F2F2F2] rounded-lg px-11 py-3 text-sm font-medium text-[#4F4F4F] -tracking-[-0,49px] flex justify-center gap-3'>
+              <Repeat2 size={20} /> Retweeted
+            </button>
+            <button className='hover:bg-[#F2F2F2] rounded-lg px-11 py-3 text-sm font-medium text-[#4F4F4F] -tracking-[-0,49px] flex justify-center gap-3'>
+              <Heart size={20} /> Liked
+            </button>
+            <button className='px-11 py-3 hover:bg-[#F2F2F2] rounded-lg text-sm font-medium text-[#4F4F4F] -tracking-[-0,49px] flex justify-center gap-3'>
+              <Bookmark size={20} /> Saved
+            </button>
           </footer>
+
+          <hr />
+          <div className='py-3'>
+            <CommentInput />
+          </div>
         </main>
       </div>
     </Box>

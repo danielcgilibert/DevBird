@@ -1,9 +1,20 @@
 'use client'
 import * as AvatarPrimitive from '@radix-ui/react-avatar'
+import { cn } from '../util'
 
-export function Avatar(): JSX.Element {
+export interface AvatarProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+  className?: string
+}
+
+export const AvatarStyles = cn(
+  'inline-flex h-[45px] w-[45px] select-none items-center justify-center overflow-hidden rounded-lg align-middle'
+)
+
+export function Avatar(props: AvatarProps): JSX.Element {
   return (
-    <AvatarPrimitive.Root className='inline-flex h-[45px] w-[45px] select-none items-center justify-center overflow-hidden rounded-lg align-middle'>
+    <AvatarPrimitive.Root
+      {...props}
+      className={cn(AvatarStyles, props.className)}>
       <AvatarPrimitive.Image
         alt='Daniel Carmona'
         className='h-full w-full rounded-[inherit] object-cover'
