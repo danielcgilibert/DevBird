@@ -6,6 +6,7 @@ import { getTweets } from '@services/getTweets'
 
 export default async function Page() {
   const tweets = await getTweets()
+
   return (
     <main className='grid grid-cols-[auto,300px] gap-8'>
       <div className='flex flex-col gap-6'>

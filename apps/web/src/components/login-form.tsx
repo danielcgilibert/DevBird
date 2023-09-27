@@ -12,15 +12,18 @@ import {
 import { authStore } from '../store/authStore'
 
 export function LoginForm(): JSX.Element {
-  const { setUser } = authStore()
+  const { login, setAuthentication } = authStore()
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const form = e.target
-    const email = form.email.value
-    const password = form.password.value
-    const user = await loginUser({ email, password })
-    setUser(user)
+
+    const email = (e.currentTarget.elements[0] as HTMLInputElement).value
+    const password = (e.currentTarget.elements[1] as HTMLInputElement).value
+    console.log(email, password)
+
+    const resp = await loginUser({ email, password })
+    login(resp!.user)
+    setAuthentication(true)
   }
   return (
     <>
@@ -38,12 +41,14 @@ export function LoginForm(): JSX.Element {
                   type='email'
                   name='email'
                   placeholder='example@gmail.com'
+                  value={'bob@prisma.io'}
                   id='email'
                 />
                 <input
                   className='pl-4 py-2 rounded-full bg-[#F5F8FA] placeholder:font-medium '
                   type='password'
                   name='password'
+                  value={'1234'}
                   placeholder='Password'
                   id='password'
                 />

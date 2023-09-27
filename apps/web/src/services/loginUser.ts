@@ -5,23 +5,18 @@ export const loginUser = async (userData: {
   password: string
 }) => {
   try {
-    console.log(userData)
-
     const resp = await fetch(`${env.api}/auth/login`, {
       method: 'POST',
       credentials: 'include',
-
       headers: {
         'Content-Type': 'application/json'
       },
-
       body: JSON.stringify(userData)
     })
 
-    const user = await resp.json()
-    console.log(user)
+    const { jwt, message, user } = await resp.json()
 
-    return 'user'
+    return { jwt, message, user }
   } catch (error) {
     console.log(error)
     return null

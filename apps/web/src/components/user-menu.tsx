@@ -1,6 +1,6 @@
 'use client'
 
-import { Globe2, LogOut, Settings, User, Users } from 'lucide-react'
+import { LogOut, Settings, User } from 'lucide-react'
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -10,14 +10,17 @@ import {
   Avatar,
   DropdownMenuSeparator
 } from 'ui'
+import { authStore } from '../store/authStore'
 
 export function UserMenu() {
+  const { user, logout } = authStore()
+
   return (
     <>
       <DropdownMenu>
         <DropdownMenuTrigger className='flex gap-3 justify-center items-center outline-none'>
           <Avatar />
-          Daniel CG
+          {user?.username}
         </DropdownMenuTrigger>
         <DropdownMenuContent
           align='end'
@@ -36,7 +39,9 @@ export function UserMenu() {
           </DropdownMenuItem>
           <DropdownMenuSeparator className='bg-gray-200' />
           <DropdownMenuItem className=' gap-2 hover:bg-red-100 rounded-lg h-10 pl-3 text-sm'>
-            <Button className='flex justify-start items-center bg-transparent text-red-500 w-full gap-2 '>
+            <Button
+              onClick={logout}
+              className='flex justify-start items-center bg-transparent text-red-500 w-full gap-2 '>
               <LogOut />
               Logout
             </Button>

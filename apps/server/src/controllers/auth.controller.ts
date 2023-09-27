@@ -29,18 +29,19 @@ const login = async (req: Request, res: Response) => {
     },
     process.env.JWT_SECRET || 'secret',
     {
-      expiresIn: '1h'
+      expiresIn: '5h'
     }
   )
 
   res.cookie('auth_token', token, {
-    httpOnly: env.NODE_ENV === 'production' ? true : false,
-    sameSite: 'none',
+    httpOnly: true,
+    maxAge: 60 * 60 * 24 * 7,
     secure: true
   })
+
   res.status(200).json({
     message: 'Login success',
-    user: { email: user.email, username: user.username }
+    user: { email: user.email, username: user.username, token }
   })
 }
 
